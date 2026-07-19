@@ -342,7 +342,7 @@
       <div class="cta-row">
         <a class="btn btn-primary" href="#projekte" data-i18n="cta.projekte">Projekte ansehen</a>
         <a class="btn btn-ghost" href="#kontakt" data-i18n="cta.kontakt">Kontakt aufnehmen</a>
-        <a class="btn btn-ghost" href="/lebenslauf-luc-wilcox.pdf" download data-i18n="cta.cv">Lebenslauf (PDF)</a>
+        <a class="btn btn-ghost" id="cvLink" href="/lebenslauf-luc-wilcox.pdf" download data-i18n="cta.cv">Lebenslauf (PDF)</a>
       </div>
     </div>
     <div>
@@ -775,6 +775,11 @@
     document.title = dict.title;
     const descEl = document.getElementById('pageDescription');
     if (descEl) descEl.setAttribute('content', dict.description);
+
+    const cvLink = document.getElementById('cvLink');
+    if (cvLink) {
+      cvLink.href = lang === 'en' ? '/lebenslauf-luc-wilcox-en.pdf' : '/lebenslauf-luc-wilcox.pdf';
+    }
 
     const langToggle = document.getElementById('langToggle');
     if (langToggle) langToggle.textContent = lang === 'de' ? 'EN' : 'DE';
